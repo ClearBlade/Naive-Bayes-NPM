@@ -1,0 +1,9 @@
+{
+    "auth": true,
+    "description": "",
+    "messaging_url": "staging.clearblade.com:1883",
+    "name": "NaiveBayesNode",
+    "platform_url": "https://staging.clearblade.com",
+    "system_key": "9a97ded80bca91c7b59cbbf2a668",
+    "system_secret": "9A97DED80B88B192BCCFFC9C9CD601"
+}
