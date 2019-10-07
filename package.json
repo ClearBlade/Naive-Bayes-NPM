@@ -1,0 +1,77 @@
+{
+  "author": "Rob Reinold <rob@clearblade.com>",
+  "description": "Communication API for SMS",
+  "asset_types": [
+    "System",
+    "Code Libraries",
+    "Code Services",
+    "Portals",
+    "Collections",
+    "Triggers",
+    "Adapters",
+    "Roles",
+    "Timers",
+    "Plugins",
+    "Users",
+    "Edges",
+    "Devices"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "keywords": [
+    "BLE",
+    "edge",
+    "adapter",
+    "ML",
+    "SalesForce",
+    "Notifications",
+    "Stepper Motor",
+    "MQ",
+    "Rules Engine",
+    "Integration",
+    "Building",
+    "Management",
+    "Blueprint",
+    "admin",
+    "administration",
+    "monitoring",
+    "anomaly",
+    "aberration",
+    "anomaly detection",
+    "bayesian",
+    "decision tree"
+  ],
+  "prog_lang": ["C", "javascript"],
+  "cloud": ["AWS", "GCloud"],
+  "things": ["NXP MENP", "thunderboard", "allen bradley"],
+  "domains": [
+    "IIoT",
+    "Device Management",
+    "Building Management",
+    "Fleet Management"
+  ],
+  "protocols": ["SMS", "http", "REST", "NFC", "BLE", "CoAP", "SNMP", "bacnet"],
+  "gateways": ["Raspberry Pi"],
+  "name": "twilio-sms-library",
+  "private": false,
+  "image_url":
+    "https://www.itsalllost.com/wp-content/uploads/2017/04/twilio-logo-red.png",
+  "dependencies": {
+    "some_clearblade_lib": "latest",
+    "http": "latest"
+  },
+  "scripts": {
+    "jsdoc": "jsdoc2md code/libraries/*/*.js --heading-depth=3 > jsdoc.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rreinold/twilio-sms-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rreinold/twilio-sms-library/issues"
+  },
+  "homepage": "https://github.com/rreinold/twilio-sms-library#readme",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^4.0.1"
+  }
+}
