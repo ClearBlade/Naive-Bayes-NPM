@@ -1,6 +1,6 @@
 {
   "author": "Rajas Deshpande <rdeshpande@clearblade.com>",
-  "description": "Naive Bayes NPM",
+  "description": "Naive Bayes",
   "asset_types": [
     "System",
     "Code Libraries",
@@ -34,7 +34,7 @@
   ],
   "protocols": [],
   "gateways": [],
-  "name": "Naive-Bayes-NPM",
+  "name": "Naive-Bayes",
   "private": false,
   "image_url": "",
   "dependencies": {
@@ -46,12 +46,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ClearBlade/Naive-Bayes-NPM"
+    "url": "https://github.com/ClearBlade/Naive-Bayes"
   },
   "bugs": {
-    "url": "https://github.com/ClearBlade/Naive-Bayes-NPM/issues"
+    "url": "https://github.com/ClearBlade/Naive-Bayes/issues"
   },
-  "homepage": "https://github.com/ClearBlade/Naive-Bayes-NPM#readme",
+  "homepage": "https://github.com/ClearBlade/Naive-Bayes#readme",
   "devDependencies": {
     "jsdoc-to-markdown": "^4.0.1"
   }
