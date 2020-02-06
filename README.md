@@ -12,7 +12,7 @@
 
 A naive bayes classifier can be implemented using this library to run on the ClearBlade Platform for classification purposes. This library can be used to implement two types of naive bayes algorithms - **Gaussian Naive Bayes** and **Multinomial Naive Bayes**. 
 
-The **Gaussian Naive Bayes** algorithm is typically used when the features follow a normal distribution i.e the training data has features that are [continuous](https://towardsdatascience.com/understanding-feature-engineering-part-1-continuous-numeric-data-da4e47099a7b). The **Multinomial Naive Bayes** algorithm is used when the features are discrete.
+The **Gaussian Naive Bayes** algorithm is typically used when the features follow a normal distribution i.e the training data has features that are *continuous*. The **Multinomial Naive Bayes** algorithm is used when the features are *discrete*.
 
 [Difference between discrete and continuous features](https://hackernoon.com/continuous-vs-discrete-variables-in-the-context-of-machine-learning-15d9005e2525)
 
