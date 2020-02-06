@@ -10,15 +10,11 @@
 
 ## Overview
 
-Neural Networks can be implemented using the Synaptic library to run on the ClearBlade Platform for classification purposes. Synaptic is a javascript neural network library for node.js and the browser, its generalized algorithm is architecture-free, so you can build and train basically any type of first order or even [second order neural network architectures](https://en.wikipedia.org/wiki/Recurrent_neural_network#Second_Order_Recurrent_Neural_Network). 
+A naive bayes classifier can be implemented using this library to run on the ClearBlade Platform for classification purposes. This library can be used to implement two types of naive bayes algorithms - **Gaussian Naive Bayes** and **Multinomial Naive Bayes**. 
 
-This library includes a few built-in architectures like [multilayer perceptrons](https://en.wikipedia.org/wiki/Multilayer_perceptron), [multilayer long-short term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) networks (LSTM), [liquid state machines](https://en.wikipedia.org/wiki/Liquid_state_machine) or [Hopfield](https://en.wikipedia.org/wiki/Hopfield_network) networks, and a trainer capable of training any given network.
+The **Gaussian Naive Bayes** algorithm is typically used when the features follow a normal distribution i.e the training data has features that are [continuous](https://towardsdatascience.com/understanding-feature-engineering-part-1-continuous-numeric-data-da4e47099a7b). The **Multinomial Naive Bayes** algorithm is used when the features are discrete.
 
-If you have no prior knowledge about Neural Networks, you should start by reading this [guide](https://github.com/cazala/synaptic/wiki/Neural-Networks-101).
-
-If you want a practical example on how to feed data to a neural network, then take a look at this [article](https://github.com/cazala/synaptic/wiki/Normalization-101).
-
-[Neural Networks of JavaScript](https://webkid.io/blog/neural-networks-in-javascript/)
+[Difference between discrete and continuous features](https://hackernoon.com/continuous-vs-discrete-variables-in-the-context-of-machine-learning-15d9005e2525)
 
 This is an ipm package, which contains one or more reusable assets within the ipm Community. The 'package.json' in this repo is a ipm spec's package.json, [here](https://docs.clearblade.com/v/3/6-ipm/spec), which is a superset of npm's package.json spec, [here](https://docs.npmjs.com/files/package.json).
 
@@ -43,90 +39,65 @@ Follow these [steps](https://github.com/ClearBlade/Machine-Learning-Node-Librari
 
 ## Usage
 
-- This IPM package consists of a Neural Networks Library that can be imported in the ClearBlade Platform in order to train and test machine learning models on the platform.
+- This IPM package consists of a Naive Bayes Library that can be imported in the ClearBlade Platform in order to train and test machine learning models on the platform.
 
-- Before defining the neural network model, we first define the training data. This data includes Readings recorded from 3 sensors (Power, Temperature and Accelerometer) inside a machine. The training labels are also defined which give information about whether a maintenance was required for a given set of sensor values. ( 0 - Maintenance Not Required; 1 - Maintenance Required )
+- The API Documentation for this library can be found [here](https://mljs.github.io/naive-bayes/).
 
-``` javascript
-   var trainingData = [
-    { input: [1350, 73.4, 0.0683], output: [0] }, 
-    { input: [1350, 73.4, 0.0685], output: [0] }, 
-    { input: [1532, 83.1, 0.5272], output: [0] }, 
-    { input: [1710, 77.3, 1.7210], output: [1] },
-    { input: [1200, 76.6, 0.0688], output: [0] },
-    { input: [1820, 82.1, 0.4333], output: [1] },
-    { input: [1421, 75.4, 0.0695], output: [0] },
-    { input: [1800, 95.1, 1.9000], output: [1] },
-    { input: [1520, 82.4, 0.4272], output: [0] },
-    { input: [1740, 95.0, 1.7150], output: [1] },
-  ];
-```
+- [A simple example of how the naive bayes classifier does the prediction task](https://www.geeksforgeeks.org/naive-bayes-classifiers/)
 
-- After defining the data, load the Synaptic library. The following snippet loads the library and allows your code to access functionality of the library APIs via the **synaptic** variable.
+- Before defining the classifer, we first define the training data. This data includes Readings recorded from 3 sensors (Power, Temperature and Accelerometer) inside a machine. The training labels are also defined which give information about whether a maintenance was required for a given set of sensor values. ( 0 - Maintenance Not Required; 1 - Maintenance Required )
 
 ``` javascript
-  var synaptic = getSynaptic();
-```
-
-- Once we define the **synaptic** variable, we define the Layer, Network and Trainer objects which will be essentially used for defining the layers, configuring the neural network and training the model.
-
-``` javascript
-  var Layer = synaptic.Layer;
-  var Network = synaptic.Network;
-  var Trainer = synaptic.Trainer;
-```
-
-- Define the number of neurons and the number of layers to be used in the neural network.
-
-``` javascript
-  var input_neurons = 3;
-  var hidden_neurons = 64;
-  var output_neurons = 1;
+   var inputs = [
+    [1350, 73.4, 0.0683], 
+    [1350, 73.4, 0.0685], 
+    [1532, 83.1, 0.5272], 
+    [1710, 77.3, 1.7210], 
+    [1200, 76.6, 0.0688], 
+    [1820, 82.1, 0.4333], 
+    [1421, 75.4, 0.0695], 
+    [1800, 95.1, 1.9000], 
+    [1520, 82.4, 0.4272], 
+    [1740, 95.0, 1.7150]
+  ]; 
   
-  // Define Layers
-  var inputLayer = new Layer(input_neurons);
-  var hiddenLayer = new Layer(hidden_neurons);
-  var outputLayer = new Layer(output_neurons); 
+  var outputs = [0, 0, 0, 1, 0, 1, 0, 1, 0, 1]; 
+
 ```
 
-- Connect the layers with each other.
+- After defining the data, load the Naive Bayes library. The following snippet loads the library and allows your code to access functionality of the library APIs via the **model** variable. The algorithm used in this example is Gaussian Algorithm.
 
 ``` javascript
-  inputLayer.project(hiddenLayer);
-  hiddenLayer.project(outputLayer);
-```
- 
-- Define a neural network. 
-
-``` javascript
-   var myNetwork = new Network({
-    input: inputLayer,
-    hidden: [hiddenLayer],
-    output: outputLayer
-  });
+  var gaussian = NaiveBayes().GaussianNB;
+  var model = new gaussian();
 ```
 
-- Define a new trainer and start training the model. Different options for training the model are given [here](https://github.com/cazala/synaptic/wiki/Trainer#train)
+- Once we define the **model** variable, we train the model with the given input and output data.
 
 ``` javascript
-   var myTrainer = new Trainer(myNetwork);
-   
-   myTrainer.train(trainingData, {
-    rate: 0.01,
-    iterations: 2000,
-    error: 0.1,
-    shuffle: true,
-    log: 1,
-    cost: Trainer.cost.CROSS_ENTROPY
-  });
+  model.train(inputs, outputs); 
 ```
 
 - Once the classifer is trained, predict for a given set of sensor values, if a maintenance is required or not.
+
 ``` javascript
-  var prediction = myNetwork.activate([1780, 95.5, 1.8120])
+   var test = [[1780, 95.5, 1.8120]];
+   var prediction = model.predict(test)
 ```
 
-- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/synaptic/blob/master/code/services/SynapticSmokeTest/SynapticSmokeTest.js) and you can refer to the [**Official Documentation**](https://github.com/mljs/naive-bayes) of that library to explore more options that you can use.  
+- Multinomial Naive Bayes can also be implememted as shown below.
+
+``` javascript
+   var multinomial = NaiveBayes().MultinomialNB;
+   var model = new multinomial();
+   model.train(inputs, outputs); 
+  
+   // Predict if maintenance is required for sensor values - { power: 1780, temperature: 95.5, accelerometer: 1.8120 }
+   var test = [[1780, 95.5, 1.8120]];
+   var prediction = model.predict(test)
+```
+
+- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/naive-bayes/blob/master/code/services/NaiveBayesSmokeTest/NaiveBayesSmokeTest.js) and you can refer to the [**Official Documentation**](https://github.com/mljs/naive-bayes) of that library to explore more options that you can use.  
 
 ## Assets
 
