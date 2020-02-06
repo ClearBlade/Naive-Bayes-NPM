@@ -43,7 +43,7 @@ Follow these [steps](https://github.com/ClearBlade/Machine-Learning-Node-Librari
 
 - The API Documentation for this library can be found [here](https://mljs.github.io/naive-bayes/).
 
-- [A simple example of how the naive bayes classifier does the prediction task](https://www.geeksforgeeks.org/naive-bayes-classifiers/)
+- [A simple example of how the naive bayes classifier does the prediction task.](https://www.geeksforgeeks.org/naive-bayes-classifiers/)
 
 - Before defining the classifer, we first define the training data. This data includes Readings recorded from 3 sensors (Power, Temperature and Accelerometer) inside a machine. The training labels are also defined which give information about whether a maintenance was required for a given set of sensor values. ( 0 - Maintenance Not Required; 1 - Maintenance Required )
 
