@@ -93,7 +93,7 @@ https://github.com/ClearBlade/brain-js
    var prediction = model.predict(test)
 ```
 
-- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/naive-bayes/blob/master/code/services/NaiveBayesSmokeTest/NaiveBayesSmokeTest.js) and you can refer to the [**Official Documentation**](https://github.com/mljs/naive-bayes) of that library to explore more options that you can use.  
+- The implementation of this library is done in the [smoke test](https://github.com/ClearBlade/naive-bayes/blob/master/code/services/NaiveBayesExample/NaiveBayesExample.js) and you can refer to the [**Official Documentation**](https://github.com/mljs/naive-bayes) of that library to explore more options that you can use.  
 
 ## Assets
 
@@ -105,7 +105,7 @@ https://github.com/ClearBlade/brain-js
 
 ### Code Services
 
-``` NaiveBayesSmokeTest ``` : A code service to show working of Naive Bayes Library.
+``` NaiveBayesExample ``` : A code service to show working of Naive Bayes Library.
 
 ## Advanced
 
