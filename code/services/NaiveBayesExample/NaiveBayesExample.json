@@ -5,7 +5,7 @@
     "dependencies": "log,NaiveBayesLibrary",
     "execution_timeout": 60,
     "logging_enabled": true,
-    "name": "NaiveBayesSmokeTest",
+    "name": "NaiveBayesExample",
     "params": [
         "{}"
     ],
