@@ -11,7 +11,7 @@
         "CodeServices": [
             {
                 "Level": 1,
-                "Name": "NaiveBayesSmokeTest"
+                "Name": "NaiveBayesExample"
             }
         ],
         "Collections": [],
