@@ -6,8 +6,6 @@
     "execution_timeout": 60,
     "logging_enabled": true,
     "name": "NaiveBayesExample",
-    "params": [
-        "{}"
-    ],
+    "params": [],
     "run_user": ""
 }

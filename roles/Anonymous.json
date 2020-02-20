@@ -19,6 +19,9 @@
         "EdgesList": {
             "Level": 0
         },
+        "ManageUsers": {
+            "Level": 0
+        },
         "MsgHistory": {
             "Level": 0
         },
